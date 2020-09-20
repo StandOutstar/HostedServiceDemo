@@ -20,10 +20,10 @@ namespace HostedServiceDemo.HostedServices.CronJobs
             return base.StartAsync(cancellationToken);
         }
         
-        public override Task DoWork(CancellationToken cancellationToken)
+        public override async Task DoWork(object state)
         {
             _logger.LogInformation($"{DateTime.Now:hh:mm:ss.fff t z} CronJob 1 is working.");
-            return Task.CompletedTask;
+            await Task.CompletedTask;
         }
 
         public override Task StopAsync(CancellationToken cancellationToken)
